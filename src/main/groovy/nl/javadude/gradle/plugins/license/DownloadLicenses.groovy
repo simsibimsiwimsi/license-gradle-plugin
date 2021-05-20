@@ -107,7 +107,7 @@ public class DownloadLicenses extends ConventionTask {
     @Input String dependencyConfiguration
     
         /*
-    The following getters and setters are provided as Gradle 7 throws validation errors like:
+    The following getters are provided as Gradle 7 throws validation errors like:
 
     Some problems were found with the configuration of task ':downloadLicenses' (type 'DownloadLicenses').
   - Type 'nl.javadude.gradle.plugins.license.DownloadLicenses' property 'html' has redundant getters: 'getHtml()' and 'isHtml()'.
