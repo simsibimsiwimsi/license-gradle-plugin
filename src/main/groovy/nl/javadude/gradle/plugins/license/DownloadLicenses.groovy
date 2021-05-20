@@ -105,6 +105,53 @@ public class DownloadLicenses extends ConventionTask {
      * The dependency configuration to report on.
      */
     @Input String dependencyConfiguration
+    
+        /*
+    The following getters and setters are provided as Gradle 7 throws validation errors like:
+
+    Some problems were found with the configuration of task ':downloadLicenses' (type 'DownloadLicenses').
+  - Type 'nl.javadude.gradle.plugins.license.DownloadLicenses' property 'html' has redundant getters: 'getHtml()' and 'isHtml()'.
+
+    Reason: Boolean property 'html' has both an `is` and a `get` getter.
+
+    Possible solutions:
+      1. Remove one of the getters.
+      2. Annotate one of the getters with @Internal.
+
+    Please refer to https://docs.gradle.org/7.0.2/userguide/validation_problems.html#redundant_getters for more details about this problem.
+    ...
+    
+     */
+
+    boolean isHtml() { return html }
+
+    @Internal
+    boolean getHtml() { return html }
+
+
+    boolean isIgnoreFatalParseErrors() { return ignoreFatalParseErrors }
+
+    @Internal
+    boolean getIgnoreFatalParseErrors() { return ignoreFatalParseErrors }
+
+
+    boolean isIncludeProjectDependencies() { return includeProjectDependencies }
+
+    @Internal
+    boolean getIncludeProjectDependencies() { return includeProjectDependencies }
+
+
+    boolean isJson() { return json }
+
+    @Internal
+    boolean getJson() { return json }
+
+
+    boolean isReportByDependency() { return reportByDependency }
+
+    @Internal
+    boolean getReportByDependency() { return reportByDependency }
+
 
     @TaskAction
     def downloadLicenses() {
